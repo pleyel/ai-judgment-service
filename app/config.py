@@ -16,13 +16,16 @@ class Settings(BaseSettings):
     mongo_uri: str
     mongo_db_name: str = "entitude"
 
+    # 프론트엔드 dev 서버 오리진. 개발 단계라 넓게 허용 - 배포 시엔 실제 프론트 도메인으로 좁혀야 한다.
+    cors_allow_origins: list[str] = ["*"]
+
     # 한국투자증권(KIS) 모의투자 Open API. 계좌번호(CANO)가 없는 구성 = 시세 조회 전용, 주문 실행 불가.
     kis_app_key: str = ""
     kis_app_secret: str = ""
     kis_base_url: str = "https://openapivts.koreainvestment.com:29443"  # 모의투자 도메인
 
-    # 실시간 연동 대상 종목과 REST 폴링 주기. 지금은 테스트 목적으로 삼성전자 하나만.
-    watch_symbols: list[str] = ["005930"]
+    # 실시간 연동 대상 종목과 REST 폴링 주기. 프론트엔드 시연 종목(LG이노텍)에 맞춤.
+    watch_symbols: list[str] = ["011070"]
     poll_interval_sec: int = 10
 
     # newsapi.org - 무료 플랜은 하루 100req 제한이라, 시세처럼 짧은 주기로 폴링하면 안 된다.

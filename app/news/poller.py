@@ -13,8 +13,8 @@ from app.triggers.event_listener import on_news_event
 
 logger = logging.getLogger(__name__)
 
-# 지금은 삼성전자 하나만 테스트 대상이라 종목코드 -> 검색어 매핑을 간단히 고정해둔다.
-SYMBOL_TO_QUERY = {"005930": "삼성전자"}
+# 지금은 종목 하나만 테스트 대상이라 종목코드 -> 검색어 매핑을 간단히 고정해둔다.
+SYMBOL_TO_QUERY = {"011070": "LG이노텍"}
 
 # symbol -> 이미 처리한 기사 url 집합. 재기동하면 초기화된다(중복 처리 위험보다
 # 재시작 직후 최근 기사를 한 번 더 판단에 반영하는 쪽이 안전하다고 보고 감수한다).

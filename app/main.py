@@ -2,6 +2,7 @@ import asyncio
 import logging
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from app.api.routes import judgment, compare, history
 from app.config import settings
 from app.marketdata.poller import run_polling_loop
@@ -10,6 +11,13 @@ from app.news.poller import run_news_polling_loop
 logging.basicConfig(level=logging.INFO)
 
 app = FastAPI(title="AI 판단 서비스")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=settings.cors_allow_origins,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 app.include_router(judgment.router)
 app.include_router(compare.router)

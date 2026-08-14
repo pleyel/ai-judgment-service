@@ -13,7 +13,7 @@ import json
 
 from app.marketdata import kis_client
 
-SYMBOL = "005930"  # 삼성전자
+SYMBOL = "011070"  # LG이노텍
 
 
 async def main():
